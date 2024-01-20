@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,700;1,700&display=swap"
+    rel="stylesheet">
+
+  <link href="/output.css" rel="stylesheet">
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script src="/app.js"></script>
+
+</head>
+
+<body class="text-neutral-600">
+  <main>
+    <header>
+      <div class="grid grid-cols-2 az-container">
+        <a>
+          <img src="https://placehold.co/300x80">
+        </a>
+        <nav class="flex gap-5 items-center justify-end text-lg">
+          <a>Agenda</a>
+          <a>Informações</a>
+          <a>Local</a>
+        </nav>
+      </div>
+    </header>
+    <section class="az-section">
+      <div class="grid grid-cols-5 gap-16 items-center az-container">
+        <div class="col-span-3">
+          <img src="https://placehold.co/800x600" class="w-full rounded-lg">
+        </div>
+        <article class="col-span-2 space-y-5">
+          <h2 class="az-title">
+            Powerful Tagline for Your Product
+          </h2>
+          <p>É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.</p>
+          <p>É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="az-section" x-data="agenda">
+      <h2 class="az-title text-center mb-12">Agenda</h2>
+      <div class="grid grid-cols-3 gap-8 az-container">
+        <template x-for="item in items">
+          <div class="flex gap-4">
+            <div class="h-14 w-14 flex-none p-2 bg-neutral-300 rounded-lg flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div>
+              <h3 x-text="item.titulo" class="text-2xl font-bold"></h3>
+              <p x-text="item.texto"></p>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+    
+
+    <section class="az-section">
+      <h2 class="az-title text-center mb-12">Informações</h2>
+      <div class="max-w-6xl mx-auto">
+        <section class="grid grid-cols-2 gap-16 items-center">
+          <picture class="w-full block">
+            <img src="https://placehold.co/800x450" class="w-full">
+          </picture>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Benefício Primário</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, totam minus. Beatae sint quaerat ullam sit deleniti. Magni illo commodi rem dolor eaque nesciunt, dolores aspernatur dolorum maiores veritatis in!</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Benefício Primário</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, totam minus. Beatae sint quaerat ullam sit deleniti. Magni illo commodi rem dolor eaque nesciunt, dolores aspernatur dolorum maiores veritatis in!</p>
+          </div>
+
+          <picture class="w-full block">
+            <img src="https://placehold.co/800x450" class="w-full">
+          </picture>
+        </section>
+      </div>
+    </section>
+
+
+    <section class="az-section bg-neutral-100">
+      <ul class="grid grid-cols-3 gap-16 max-w-6xl mx-auto" id="az-list-items">
+        <li>
+          <i>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="feather feather-database">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+          </i>
+          <h4>Primary Benefit One</h4>
+          <div>
+            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
+          </div>
+        </li>
+        <li>
+          <i>&star;</i>
+          <h4>Primary Benefit One</h4>
+          <div>
+            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
+          </div>
+        </li>
+        <li>
+          <i>&star;</i>
+          <h4>Primary Benefit One</h4>
+          <div>
+            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+
+</html>

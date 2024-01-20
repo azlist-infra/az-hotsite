@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    
+    .az-title{
+        @apply text-4xl font-black;
+    }
+
+    .az-container{
+        @apply max-w-7xl mx-auto;
+    }
+
+    .az-section {
+        @apply lg:py-12 py-8 border-t border-neutral-300;
+    }
+
+    #az-list-items li {
+        @apply space-y-3 text-center;
+    }
+
+    #az-list-items li > i {
+        @apply not-italic h-14 w-14 text-4xl bg-white inline-flex items-center justify-center rounded-2xl shadow;
+    }
+
+    #az-list-items li > h4 {
+        @apply text-xl font-bold;
+    }
+}

@@ -4,6 +4,6 @@
   },
 
   "scripts": {
-    "dev" : "npx tailwindcss -i ./src/input.css -o ./public/output.css --watch"
+    "dev" : "npx tailwindcss -i ./src/input.css -o ./assets/output.css --watch"
   }
 }

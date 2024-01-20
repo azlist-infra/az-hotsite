@@ -626,10 +626,6 @@ video {
   margin-bottom: 0.75rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
 .block {
   display: block;
 }
@@ -670,16 +666,12 @@ video {
   width: 100%;
 }
 
-.max-w-6xl {
-  max-width: 72rem;
-}
-
-.\!max-w-6xl {
-  max-width: 72rem !important;
-}
-
 .\!max-w-5xl {
   max-width: 64rem !important;
+}
+
+.max-w-6xl {
+  max-width: 72rem;
 }
 
 .flex-none {
@@ -688,10 +680,6 @@ video {
 
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .items-center {

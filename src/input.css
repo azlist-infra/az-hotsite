@@ -17,7 +17,7 @@
     }
 
     .az-input {
-        @apply border-2 border-neutral-400 rounded-md h-16 p-4;
+        @apply border-2 border-neutral-400 rounded-md h-16 p-4 block w-full;
     }
 
     .az-button {

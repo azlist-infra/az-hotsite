@@ -11,6 +11,8 @@
     rel="stylesheet">
 
   <link href="/assets/output.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="https://unpkg.com/feather-icons"></script>
 
@@ -19,7 +21,7 @@
 </head>
 
 <body class="text-neutral-600">
-  <main class="min-h-screen flex flex-col w-full">
+  <main class="min-h-screen flex flex-col w-full" x-data="cadastro">
     <header>
       <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
         <a class="lg:text-start text-center">
@@ -31,14 +33,27 @@
     <section>
       <div class="az-section">
         <div class="az-container !max-w-md">
-          <form class="grid gap-6" autocomplete="off">
+          <form class="grid gap-6" autocomplete="off" @submit.prevent="submit">
             <h2 class="az-title text-center">
               Complete seu Cadastro
             </h2>
             <p class="text-center">Confirme seu cadastro e faça upload da sua foto</p>
-            <input class="az-input" placeholder="Nome Completo" type="text">
-            <input class="az-input" placeholder="E-mail" type="email">
-            <input class="az-input" type="password" placeholder="Senha" autocomplete="new-password">
+            <div>
+              <label>Nome Completo</label>
+              <input class="az-input" placeholder="Nome Completo" type="text" x-model="pax.Name">
+            </div>
+            <div>
+              <label>CPF</label>
+              <input class="az-input" placeholder="CPF" type="text" x-model="pax.Cpf" x-mask="999.999.999-99" maxlength="14">
+            </div>
+            <div>
+              <label>Telefone</label>
+              <input class="az-input" placeholder="Telefone" type="text" x-model="pax.Phone" x-mask="(99) 99999-9999" maxlength="15">
+            </div>
+            <div>
+              <label>E-mail</label>
+              <input class="az-input" placeholder="E-mail" type="email" x-model="pax.Email">
+            </div>
             <button class="az-button">
               CONTINUAR
             </button>

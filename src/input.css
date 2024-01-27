@@ -21,7 +21,8 @@
     }
 
     .az-button {
-        @apply h-16 p-4 flex justify-center items-center bg-neutral-800 hover:bg-neutral-950 duration-500 text-white;
+        @apply h-16 p-4 flex justify-center items-center bg-neutral-800 hover:bg-neutral-950 duration-500 text-white text-lg;
+        @apply disabled:opacity-40;
     }
 
     #az-list-items li {
@@ -35,4 +36,8 @@
     #az-list-items li > h4 {
         @apply text-xl font-bold;
     }
+}
+
+[x-cloak]{
+    display: none;
 }

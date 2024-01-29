@@ -24,8 +24,8 @@
   <main class="min-h-screen flex flex-col w-full" x-data="cadastro">
     <header>
       <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
-        <a class="lg:text-start text-center">
-          <img src="https://placehold.co/160x80" class="w-32 inline-block">
+        <a class="lg:text-start text-center" href="/">
+          <img src="/assets/img/logo.webp" class="w-56 inline-block">
         </a>
       </div>
     </header>
@@ -102,7 +102,7 @@
             <h2 class="az-title text-center">
               Envie sua Foto
             </h2>
-            <img class="w-full" :src="uploadPreview">
+            <img class="w-full" :src="uploadPreview" id="preview-image">
             <label class="cursor-pointer az-button">
               Selecionar Imagem
               <input @change="(e) => e.target.files.length && selectImage(e.target.files[0])" accept="image/*"

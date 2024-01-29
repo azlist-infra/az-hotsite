@@ -5,7 +5,7 @@
 @layer components {
     
     .az-title{
-        @apply text-4xl font-black;
+        @apply text-4xl font-black uppercase;
     }
 
     .az-container{
@@ -13,7 +13,7 @@
     }
 
     .az-section {
-        @apply lg:py-12 py-8 border-t border-neutral-300;
+        @apply lg:py-12 py-8;
     }
 
     .az-input {
@@ -23,8 +23,18 @@
     }
 
     .az-button {
-        @apply h-16 p-4 flex justify-center items-center bg-neutral-800 hover:bg-neutral-950 duration-500 text-white text-lg;
+        @apply cursor-pointer;
+        @apply h-16 px-8 inline-flex justify-center items-center duration-500 text-lg;
         @apply disabled:opacity-40;
+    }
+
+    .az-button:not(.outlined) {
+        @apply bg-neutral-800 hover:bg-neutral-950 text-white;
+    }
+
+    .az-button.outlined{
+        @apply border-2 border-current text-neutral-800 font-bold;
+        @apply hover:bg-neutral-950 hover:text-white;
     }
 
     #az-list-items li {

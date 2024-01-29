@@ -117,8 +117,37 @@ document.addEventListener('alpine:init', () => {
                 return;
             }
 
-            this.blob = file;
-            this.uploadPreview = URL.createObjectURL(file);
+            /**
+             * @var {HTMLCanvasElement}
+             */
+            const canvas = Object.assign(document.createElement('canvas'), {
+                width: 800,
+            })
+
+            const ctx = canvas.getContext('2d')
+
+            const img = Object.assign(document.createElement('img'), {
+                src: URL.createObjectURL(file)
+            });
+
+            const drawAfterLoad = () => {
+                const w = canvas.width;
+                const h = canvas.width *  img.height / img.width;
+
+                canvas.height = h;
+
+                ctx.drawImage(img, 0, 0, w, h);
+
+                canvas.toBlob((blob) => {
+                    this.blob = blob;
+                    this.uploadPreview = URL.createObjectURL(blob)
+                }, 'image/jpeg', 0.8)
+
+            }
+
+            img.complete ? drawAfterLoad() : img.addEventListener('load', drawAfterLoad)
+
+            console.log(canvas)
         },
 
         async submit() {

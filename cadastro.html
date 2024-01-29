@@ -76,7 +76,7 @@
               </div>
               <div>
                 <label>CPF</label>
-                <input class="az-input" placeholder="CPF" type="text" x-model="pax.Cpf" x-mask="999.999.999-99"
+                <input :disabled="isCpfDisabled" class="az-input" placeholder="CPF" type="text" x-model="pax.Cpf" x-mask="999.999.999-99"
                   maxlength="14">
               </div>
               <div>

@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
 
-    const BASE_API = 'https://api-rds-aztools.onrender.com/api'
-    // const BASE_API = 'http://localhost:3005/api'
+    // const BASE_API = 'https://api-rds-aztools.onrender.com/api'
+    const BASE_API = 'http://localhost:3005/api'
 
     let x = 1;
 
@@ -35,6 +35,8 @@ document.addEventListener('alpine:init', () => {
 
         token: null,
         loading: true,
+
+        isCpfDisabled: false,
 
         message: {
             text: null,
@@ -88,9 +90,13 @@ document.addEventListener('alpine:init', () => {
 
                 this.loading = false;
 
-                if (data.pax.SocialNetwork)
-                {
-                    this.uploadPreview = `https://azlist-content.s3.amazonaws.com/${data.pax.SocialNetwork}`
+                this.isCpfDisabled = !!this.pax.Cpf
+
+                if (data.pax.SocialNetwork) {
+
+                    const v = +new Date;
+
+                    this.uploadPreview = `https://azlist-content.s3.amazonaws.com/${data.pax.SocialNetwork}?v=${v}`
                 }
             })
         },
@@ -120,17 +126,15 @@ document.addEventListener('alpine:init', () => {
             const response = await fetch(`${BASE_API}/putMagicLink/${this.pax.id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    authorization: `Token ${this.token}`
                 },
                 body: JSON.stringify({
                     Name: this.pax.Name,
-                    Cpf: this.pax.Cpf.replace(/\D+/g, ''),
+                    Cpf: this.isCpfDisabled ?  undefined : this.pax.Cpf.replace(/\D+/g, ''),
                     Phone: this.pax.Phone.replace(/\D/g, ''),
                     Email: this.pax.Email,
                 }),
-                headers: {
-                    authorization: `Token ${this.token}`
-                }
             })
 
             if (response.status === 200) {

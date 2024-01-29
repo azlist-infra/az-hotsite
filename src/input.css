@@ -18,6 +18,8 @@
 
     .az-input {
         @apply border-2 border-neutral-400 rounded-md h-16 p-4 block w-full;
+
+        @apply disabled:opacity-70;
     }
 
     .az-button {

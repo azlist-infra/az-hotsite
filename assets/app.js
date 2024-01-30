@@ -5,21 +5,23 @@ document.addEventListener('alpine:init', () => {
 
     let x = 1;
 
-    function gerarAgenda() {
+    function gerarAgenda(options = {}) {
         return {
-            titulo: `Dia ${x++}`,
-            texto: 'Descrição da Agenda desse dia'
+            dia: x++,
+            titulo: 'Desfile Lorem Ipsum',
+            texto: 'Descrição da Agenda desse dia',
+            ...options,
         }
     }
 
     Alpine.data('agenda', () => ({
         items: [
-            gerarAgenda(),
-            gerarAgenda(),
-            gerarAgenda(),
-            gerarAgenda(),
-            gerarAgenda(),
-            gerarAgenda()
+            gerarAgenda({ className: 'bg-red-500 text-white'}),
+            gerarAgenda({ className: 'bg-pink-600 text-white' }),
+            gerarAgenda({ className: 'bg-yellow-500 text-white' }),
+            gerarAgenda({ className: 'bg-blue-600 text-white' }),
+            gerarAgenda({ className: 'bg-blue-400 text-white' }),
+            gerarAgenda({ className: 'bg-green-600 text-white'})
         ]
     }))
 

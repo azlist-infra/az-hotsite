@@ -7,7 +7,7 @@ document.addEventListener('alpine:init', () => {
 
     function gerarAgenda(options = {}) {
         return {
-            dia: x++,
+            dia: x++,   
             titulo: 'Desfile Lorem Ipsum',
             texto: 'Descrição da Agenda desse dia',
             ...options,
@@ -21,7 +21,7 @@ document.addEventListener('alpine:init', () => {
             gerarAgenda({ className: 'bg-yellow-500 text-white' }),
             gerarAgenda({ className: 'bg-blue-600 text-white' }),
             gerarAgenda({ className: 'bg-blue-400 text-white' }),
-            gerarAgenda({ className: 'bg-green-600 text-white'})
+            gerarAgenda({ className: 'bg-green-600 text-white' })
         ]
     }))
 

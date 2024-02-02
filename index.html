@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="h-full">
+<html class="h-full lg:text-base text-xs">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,17 @@
         <header>
             <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
                 <a class="lg:text-start text-center">
-                    <img src="/assets/img/logo.webp" class="w-56 inline-block">
+                    <img src="/assets/img/logo.webp" class="w-56 inline-block max-lg:hidden">
+                    <img src="/assets/img/logo-vertical.webp" class="w-32 lg:hidden mx-auto my-5">
+                    <a class="lg:hidden block absolute right-5 top-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="feather feather-menu">
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </a>
                 </a>
                 <nav class="flex gap-5 items-center lg:justify-end justify-center text-lg">
                     <a class="py-5">Agenda</a>
@@ -32,8 +42,9 @@
                 </nav>
             </div>
         </header>
-        <section class="bg-black text-white bg-[url(/assets/img/fundo-banner.webp)] bg-contain bg-center bg-no-repeat">
-            <div class="text-5xl font-bold text-center p-12 max-w-4xl uppercase mx-auto">
+        <section
+            class="bg-black text-white bg-[url(/assets/img/fundo-banner-mobile.webp)] lg:bg-[url(/assets/img/fundo-banner.webp)] bg-contain bg-bottom lg:bg-center bg-no-repeat">
+            <div class="text-5xl font-bold text-center lg:h-56 h-96 max-w-4xl uppercase mx-auto flex items-center">
                 Esperamos você no maior espetáculo da Terra!
             </div>
         </section>
@@ -124,60 +135,80 @@
                 </div>
             </div>
         </section>
-        <section class="az-section">
-            <div class="az-container">
-                <header class="bg-[url(/assets/img/fundo-1.webp)] h-64 bg-contain bg-center bg-no-repeat flex flex-col items-center justify-end">
-                    <h2 class="az-title max-w-xl text-center">
-                        INFORMAÇÕES SOBRE O MEET POINT
-                    </h2>
-                </header>
-                <div class="text-xl text-center mb-16 uppercase max-w-2xl mx-auto mt-5">
-                    Para entrar no camarote você deverá <strong>obrigatóriamente</strong>
-                    retirar o seu kit de acesso no <strong> Meet Point</strong>.
-                </div>
-                <div class="max-w-2xl mx-auto relative">
-                    <svg viewBox="0 0 600 600" height="600" width="600" class="left-0 top-0 absolute w-full h-full">
-                        <rect x="296" y="0" height="100%" width="4"></rect>
-                    </svg>
-                    <div >
-                        <ul class="az-numeric-list relative">
-                            <li>
-                                <span></span>
-                                <span>1</span>
-                                <span>
-                                    <strong>Complete seu cadastro</strong>
-                                    neste hosite
-                                </span>
-                            </li>
-                            <li>
-                                <span></span>
-                                <span>
-                                    2
-                                </span>
-                                <span>
-                                    Compareça ao <strong>Meet Point </strong> para realizar o <strong>credenciamento</strong>;
-                                </span>
-                            </li>
-                            <li>
-                                <span></span>
-                                <span>3</span>
-                                <span>
-                                    <strong>Aproveite o maior espetáculo da Terra.</strong>
-                                </span>
-                            </li>
-                        </ul>
+        <section class="az-section lg:bg-[url(/assets/img/fundo-3.webp)] bg-[left_85%] bg-[size:15rem] bg-no-repeat">
+            <div>
+                <div class="az-container">
+                    <header
+                        class="lg:bg-[url(/assets/img/fundo-1.webp)] bg-[url(/assets/img/fundo-1-mobile.webp)] h-64 bg-contain lg:bg-center bg-no-repeat flex flex-col items-center justify-end">
+                        <h2 class="az-title max-w-xl text-center">
+                            INFORMAÇÕES SOBRE O MEET POINT
+                        </h2>
+                    </header>
+                    <div class="text-xl text-center mb-16 uppercase max-w-2xl mx-auto mt-5">
+                        Para entrar no camarote você deverá <strong>obrigatóriamente</strong>
+                        retirar o seu kit de acesso no <strong> Meet Point</strong>.
                     </div>
-                </div>
-
-                <header class="text-center">
-                    <h3 class="text-2xl font-bold uppercase mb-8">Credenciamento e customização</h3>
-                    <div class="text-xl max-w-3xl mx-auto">
-                        Você deverá comparecer pessoalmente no Meet Point , com um documento original com foto em 
-    uma das seguintes datas: 7, 8, 9, 10, 11, 12 ou 17 de fevereiro.
+                    <div class="max-w-2xl mx-auto relative">
+                        <div class="h-full w-1 bg-black absolute left-7 lg:left-1/2 lg:-translate-x-1/2"></div>
+                        <div>
+                            <ul class="az-numeric-list relative">
+                                <li>
+                                    <span></span>
+                                    <span>1</span>
+                                    <span>
+                                        <strong>Complete seu cadastro</strong>
+                                        neste hosite
+                                    </span>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <span>
+                                        2
+                                    </span>
+                                    <span>
+                                        Compareça ao <strong>Meet Point </strong> para realizar o
+                                        <strong>credenciamento</strong>;
+                                    </span>
+                                </li>
+                                <li>
+                                    <span></span>
+                                    <span>3</span>
+                                    <span>
+                                        <strong>Aproveite o maior espetáculo da Terra.</strong>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </header>
+    
+                    <header class="text-center">
+                        <h3 class="text-2xl font-bold uppercase mb-8">Credenciamento e customização</h3>
+                        <div class="text-xl max-w-3xl mx-auto">
+                            Você deverá comparecer pessoalmente no Meet Point , com um <strong>documento original com foto</strong> em
+                            uma das <strong>seguintes datas: 7, 8, 9, 10, 11, 12 ou 17 de fevereiro</strong>.
+                        </div>
+                    </header>
+    
+                    <div class="mx-auto max-w-lg grid grid-cols-1 lg:grid-cols-3 lg:gap-x-16 text-xl my-16 uppercase lg:[&_span]:p-6 max-lg:text-center font-bold">
+                        <span >HORÁRIO:</span>
+                        <span class="lg:col-span-2 lg:border-l-2 border-black max-lg:pb-5 max-lg:text-sm">14H ÀS 21H</span>
+                        <span class="max-lg:border-t border-black max-lg:pt-5">LOCAL:</span>
+                        <span class="lg:col-span-2 lg:border-l-2 border-black max-lg:text-sm">
+                            Shopping Fashion Mall - 3º piso, ao lado do Gurumê (Estr. da Gávez, 899 - São Conrado).
+                        </span>
+                    </div>
+    
+                    <header class="text-center my-16 max-w-2xl mx-auto">
+                        <h3 class="text-2xl font-bold uppercase mb-8">Transfer do Meet Point ao Sambódromo</h3>
+                        <div class="text-xl max-w-3xl mx-auto ">
+                            Vá e volte do Sambódromo com total conforto e segurança. 
+                            O transporte gratuito sairá a partir das 19h, do Fashion Mall, em todos os dias de desfiles
+                        </div>
+                    </header>
+                </div>
             </div>
         </section>
+        <div class="lg:h-48 h-36 bg-[url(/assets/img/fundo-2.webp)] lg:bg-right-bottom bg-bottom lg:bg-[size:50%] bg-[size:auto_70%] bg-no-repeat"></div>
 
     </main>
 </body>

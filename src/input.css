@@ -61,12 +61,12 @@
         @apply flex items-center gap-4;
     }
 
-    ul.az-numeric-list > li > span:nth-child(1),
-    ul.az-numeric-list > li > span:nth-child(3) {
-        @apply flex-1;
+    ul.az-numeric-list > li > span:nth-child(1) {
+        @apply flex-1 max-lg:hidden;
     }
 
     ul.az-numeric-list > li > span:nth-child(3){
+        @apply flex-1;
         @apply text-base uppercase;
     }
 

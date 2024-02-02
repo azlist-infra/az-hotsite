@@ -11,7 +11,6 @@
     rel="stylesheet">
 
   <link href="/assets/output.css" rel="stylesheet">
-  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
 
   <script src="//unpkg.com/alpinejs" defer></script>
   <script src="https://unpkg.com/feather-icons"></script>
@@ -30,92 +29,6 @@
       </div>
     </header>
 
-    <section>
-      <div class="az-section">
-        <div class="az-container !max-w-md" x-cloak>
-          <div x-show="message.text"
-            class="fixed top-0 left-0 h-full w-full bg-black/60 flex justify-center items-center z-50">
-            <div x-show="message.type" x-transition:enter.duration.500ms
-              :class="{'bg-teal-500': message.type  === 'success', 'bg-red-500' : message.type === 'danger'}"
-              class=" text-white p-6 rounded-md text-center relative">
-              <span x-text="message.text"></span>
-              <a @click="setMessage(null, null)"
-                class="text-xl rounded-full text-white flex items-center justify-center bg-black h-8 w-8 absolute -right-4 -top-4 cursor-pointer">
-                &times;
-              </a>
-            </div>
-          </div>
-
-          <h2 class="az-title text-center">
-            Complete seu Cadastro
-          </h2>
-          <template x-if="loading">
-            <div>
-              <div class="text-center">
-                Aguarde, estamos carregando seus dados...
-              </div>
-              <div class="grid gap-6">
-                <template x-for="i in 4">
-                  <div>
-                    <label>Nome</label>
-                    <div class="az-input bg-neutral-200"></div>
-                  </div>
-                </template>
-                <button class="az-button" >
-                  CONTINUAR
-                </button>
-              </div>
-            </div>
-          </template>
-          <template x-if="!loading">
-            <form class="grid gap-6" autocomplete="off" @submit.prevent="submit">
-              <p class="text-center">Confirme seu cadastro e faça upload da sua foto</p>
-              <div>
-                <label>Nome Completo</label>
-                <input class="az-input" placeholder="Nome Completo" type="text" x-model="pax.Name">
-              </div>
-              <div>
-                <label>CPF</label>
-                <input :disabled="isCpfDisabled" class="az-input" placeholder="CPF" type="text" x-model="pax.Cpf" x-mask="999.999.999-99"
-                  maxlength="14">
-              </div>
-              <div>
-                <label>Telefone</label>
-                <input class="az-input" placeholder="Telefone" type="text" x-model="pax.Phone" x-mask="(99) 99999-9999"
-                  maxlength="15">
-              </div>
-              <div>
-                <label>E-mail</label>
-                <input class="az-input" placeholder="E-mail" type="email" x-model="pax.Email">
-              </div>
-              <button class="az-button">
-                CONTINUAR
-              </button>
-            </form>
-          </template>
-        </div>
-      </div>
-
-      <div class="az-section">
-        <div class="az-container !max-w-md">
-          <form class="grid gap-6" @submit.prevent="uploadPhoto">
-            <h2 class="az-title text-center">
-              Envie sua Foto
-            </h2>
-            <img class="w-full" :src="uploadPreview" id="preview-image">
-            <label class="cursor-pointer az-button">
-              Selecionar Imagem
-              <input @change="(e) => e.target.files.length && selectImage(e.target.files[0])" accept="image/*"
-                type="file" class="sr-only appearance-none bg-transparent">
-            </label>
-
-            <button class="az-button" :disabled="blob === null || uploading">
-              <span x-text="uploading ? 'CARREGANDO...' : 'SALVAR IMAGEM'"></span>
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
 
 
     <footer class="az-section bg-neutral-100">

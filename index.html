@@ -2,164 +2,184 @@
 <html class="h-full">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,700;1,700&display=swap"
-    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
 
-  <link href="/assets/output.css" rel="stylesheet">
-  <script src="//unpkg.com/alpinejs" defer></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+    <link href="/assets/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
 
-  <script src="/assets/app.js"></script>
+    <script src="/assets/app.js"></script>
 
 </head>
 
-<body class="text-neutral-600">
-  <main>
-    <header>
-      <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
-        <a class="lg:text-start text-center">
-          <img src="/assets/img/logo.webp" class="w-56 inline-block">
-        </a>
-        <nav class="flex gap-5 items-center lg:justify-end justify-center text-lg">
-          <a class="py-5">Agenda</a>
-          <a class="py-5">Informações</a>
-          <a class="py-5">Local</a>
-        </nav>
-      </div>
-    </header>
-    <section class="bg-zinc-950 text-white">
-      <div class="text-5xl font-bold text-center p-12">
-        RIO CARNAVAL 2024!
-      </div>
-    </section>
-    <section class="az-section">
-      <div class="grid lg:grid-cols-5 grid-cols-1 gap-16 items-center az-container">
-        <div class="lg:col-span-3 space-y-8">
-          <h3 class="az-title text-black">Garanta Seu Lugar!</h3>
-          <p class="mb-5">
-            Uma experiência única que promete reunir amantes do Carnaval e criações inovadoras. Não fique de fora! Garanta seu credenciamento para fazer parte desse espetáculo inesquecível. Viva a magia do Carnaval 2024 no Rio, onde a celebração e a criatividade se encontram. Não perca a chance de fazer parte da maior festa do mundo.
-            <a class="font-black underline">Clique no botão abaixo:</a>
-          </p>
-          <a class="az-button outlined w-full lg:w-auto">
-            PARTICIPE!
-          </a>
-          <h3 class="az-title text-black">O que vem a seguir?</h3>
-          <p>
-            Ao clicar, você será direcionado para a nossa página de <strong>Confirmação</strong>. Lá, você poderá preencher suas informações e garantir seu lugar neste evento incrível.
-          </p>
-        </div>
-        <article class="lg:col-span-2 space-y-5">
-          <img src="/assets/img/home-1.webp" class="w-full">
-        </article>
-      </div>
-    </section>
-
-    <div style="background-image: url('/assets/img/home-2.webp');" class="lg:h-96 h-48 w-full bg-contain bg-center lg:mt-32 bg-no-repeat lg:bg-repeat-x"></div>
-
-
-    <section class="az-section" x-data="agenda">
-      <h2 class="az-title text-center mb-12">Agenda</h2>
-      <div class="grid lg:grid-cols-3 grid-cols-1 gap-8 az-container">
-        <template x-for="item in items">
-          <div class="flex gap-4">
-            <div class="h-20 w-14 flex-none p-2 rounded flex flex-col items-center justify-center" :class="item.className">
-              <div>DIA</div>
-              <div x-text="item.dia" class="text-3xl font-bold"></div>
+<body class="text-neutral-800">
+    <main>
+        <header>
+            <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
+                <a class="lg:text-start text-center">
+                    <img src="/assets/img/logo.webp" class="w-56 inline-block">
+                </a>
+                <nav class="flex gap-5 items-center lg:justify-end justify-center text-lg">
+                    <a class="py-5">Agenda</a>
+                    <a class="py-5">Informações</a>
+                    <a class="py-5">Local</a>
+                </nav>
             </div>
-            <div>
-              <h3 x-text="item.titulo" class="text-2xl font-bold text-black"></h3>
-              <p x-text="item.texto"></p>
+        </header>
+        <section class="bg-black text-white bg-[url(/assets/img/fundo-banner.webp)] bg-contain bg-center bg-no-repeat">
+            <div class="text-5xl font-bold text-center p-12 max-w-4xl uppercase mx-auto">
+                Esperamos você no maior espetáculo da Terra!
             </div>
-          </div>
-        </template>
-      </div>
-    </section>
-    
-
-    <section class="az-section">
-      <h2 class="az-title text-center mb-12">Informações</h2>
-      <div class="az-container mx-auto">
-        <section class="grid lg:grid-cols-2 gap-16 items-center">
-          <picture class="w-full block">
-            <img src="https://placehold.co/800x450" class="w-full">
-          </picture>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Benefício Primário</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, totam minus. Beatae sint quaerat ullam sit deleniti. Magni illo commodi rem dolor eaque nesciunt, dolores aspernatur dolorum maiores veritatis in!</p>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold mb-3">Benefício Primário</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, totam minus. Beatae sint quaerat ullam sit deleniti. Magni illo commodi rem dolor eaque nesciunt, dolores aspernatur dolorum maiores veritatis in!</p>
-          </div>
-
-          <picture class="w-full block">
-            <img src="https://placehold.co/800x450" class="w-full">
-          </picture>
         </section>
-      </div>
-    </section>
 
 
-    <section class="az-section bg-neutral-100">
-      <ul class="grid lg:grid-cols-3 gap-16 max-w-6xl mx-auto" id="az-list-items">
-        <li>
-          <i>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-              class="feather feather-database">
-              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-            </svg>
-          </i>
-          <h4>Primary Benefit One</h4>
-          <div>
-            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
-          </div>
-        </li>
-        <li>
-          <i>&star;</i>
-          <h4>Primary Benefit One</h4>
-          <div>
-            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
-          </div>
-        </li>
-        <li>
-          <i>&star;</i>
-          <h4>Primary Benefit One</h4>
-          <div>
-            É claro que o entendimento das metas propostas agrega valor ao estabelecimento das formas de ação.
-          </div>
-        </li>
-      </ul>
-    </section>
+        <section x-data="cadastro">
 
-    <section class="bg-white az-section">
-      <div class="az-container !max-w-5xl">
-        <h2 class="az-title mb-12">Local</h2>
-        <div class="grid lg:grid-cols-2 grid-cols-1 gap-8">
-          <picture>
-            <img src="https://placehold.co/800x450" class="w-full">
-          </picture>
-          <div>
-            <h3 class="text-2xl font-bold">Retirada</h3>
-            <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore saepe id, culpa perspiciatis quibusdam qui eligendi necessitatibus ad placeat voluptatem sunt adipisci, quasi excepturi! Cum odit consequatur corrupti eos distinctio?</div>
-          </div>
-        </div>
-      </div>
-    </section>
+            <div class="az-section">
 
-    <footer class="az-section bg-neutral-100">
-      <div class="az-container flex justify-center">
-        <svg class=" " width="166" height="289" x="0" y="0" style="opacity: 1;"><defs><clipPath id="cp_b057ae91"><path d="M0 0 L166 0 C166 0 166 0 166 0 L166 289 C166 289 166 289 166 289 L0 289 C0 289 0 289 0 289 L0 0 C0 0 0 0 0 0 Z"></path></clipPath></defs><svg x="0" y="0" width="166" height="289" clip-path="url(#cp_b057ae91)" style="overflow: hidden;"><image x="0" y="0" height="289" width="166" preserveAspectRatio="none" xlink:href="https://images.moqups.com/repo/xSOeAiaihxJcxR7IQBX0yAevpJZc2N3W/p_jo2bHdavfvE1Bitd8De5ICvYAGNXQRsc/yQC99k8ecRF5iOfsE3nJ6eeSeAf75Uk1.png?Expires=1706199573&amp;Key-Pair-Id=K1TPUF1X6HKIYU&amp;Signature=BznSbWSXgq7oesfZX2LpraAhzFhqHvTyD3C-MJu4l10bu480sIJ8FxO5Kyif0rNGgXVgpcQFjMCsy4GagKJIivbGYz1vaAZSWR6xuD3l5h1ktsRRSDCzZ~S39hsBO-KgYmeeKxWUoi-GZgSJuUHrEyZXQ~H3H4DqszH9YVf9A8zHMYeoBp2D5yX0KObvt9CjaufIMuPlvze~cb6AJ8fEQvgLOUVo9HZsVoDYg1ALOGrz7nR94fhV9sWyfLMsnybkzJhoJxHRTpKZTqeERyIldZkLbtGAwnHBQi1t7Bmz-v3Qh6peQg8Gd64QcXmtnOTZLsqeXD86lpTeC676qSzDRw__"></image></svg><path d="M0 0 L166 0 C166 0 166 0 166 0 L166 289 C166 289 166 289 166 289 L0 289 C0 289 0 289 0 289 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="transparent"></path><path d="M0 0 L166 0 C166 0 166 0 166 0 L166 289 C166 289 166 289 166 289 L0 289 C0 289 0 289 0 289 L0 0 C0 0 0 0 0 0 Z" stroke-width="0" stroke="none" stroke-dasharray="none" fill="none"></path></svg>
-      </div>
-    </footer>
-  </main>
+                <div class="az-container !max-w-2xl" x-cloak>
+
+                    <div x-show="message.text"
+                        class="fixed top-0 left-0 h-full w-full bg-black/60 flex justify-center items-center z-50">
+                        <div x-show="message.type" x-transition:enter.duration.500ms
+                            :class="{'bg-teal-500': message.type  === 'success', 'bg-red-500' : message.type === 'danger'}"
+                            class=" text-white p-6 rounded-md text-center relative">
+                            <span x-text="message.text"></span>
+                            <a @click="setMessage(null, null)"
+                                class="text-xl rounded-full text-white flex items-center justify-center bg-black h-8 w-8 absolute -right-4 -top-4 cursor-pointer">
+                                &times;
+                            </a>
+                        </div>
+                    </div>
+
+                    <h2 class="az-title mb-5 text-center text-black">
+                        Complete seu Cadastro
+                    </h2>
+                    <p class="text-justify text-lg mb-5">Confirme seus dados pessoais e envie uma foto para garantir seu
+                        lugar no camarote.
+                        E não se esqueça que precisará retirar seu kit de acesso. Veja aqui mais informações</p>
+                    <template x-if="loading">
+                        <div class="max-w-md mx-auto">
+                            <div class="text-center">
+                                Aguarde, estamos carregando seus dados...
+                            </div>
+                        </div>
+                    </template>
+                    <template x-if="!loading">
+                        <form class="grid gap-6 max-w-md mx-auto" autocomplete="off" @submit.prevent="submit">
+
+                            <div class="az-input-wrapper">
+                                <label>Nome Completo</label>
+                                <input class="az-input" placeholder="Nome Completo" type="text" x-model="pax.Name">
+                            </div>
+
+                            <div class="az-input-wrapper">
+                                <label>CPF</label>
+                                <input :disabled="isCpfDisabled" class="az-input" placeholder="CPF" type="text"
+                                    x-model="pax.Cpf" x-mask="999.999.999-99" maxlength="14">
+                            </div>
+
+                            <div class="az-input-wrapper">
+                                <label>Telefone</label>
+                                <input class="az-input" placeholder="Telefone" type="text" x-model="pax.Phone"
+                                    x-mask="(99) 99999-9999" maxlength="15">
+                            </div>
+
+                            <div class="az-input-wrapper">
+                                <label>E-mail</label>
+                                <input class="az-input" placeholder="E-mail" type="email" x-model="pax.Email">
+                            </div>
+
+                            <div class="relative" x-show="uploadPreview">
+                                <a @click="uploadPreview = null"
+                                    class="text-3xl bg-red-400 cursor-pointer absolute -top-5 -right-5 h-8 w-8 flex items-center justify-center rounded-full text-white">&times;</a>
+                                <img class="w-full" :src="uploadPreview" id="preview-image">
+                            </div>
+
+                            <div class="flex flex-col items-center justify-center h-64 border-2 border-dashed border-current duration-300"
+                                :class="dropingFile ? 'text-blue-400' : 'text-black'" x-show="!uploadPreview"
+                                x-on:drop="dropingFile = false" x-on:drop.prevent="onDrop"
+                                x-on:dragover.prevent="dropingFile = true" x-on:dragleave.prevent="dropingFile = false">
+                                <label
+                                    class="bg-black hover:bg-zinc-800 text-white px-8 py-1 rounded-2xl cursor-pointer">
+                                    Enviar Arquivos
+                                    <input @change="(e) => e.target.files.length && selectImage(e.target.files[0])"
+                                        accept="image/*" type="file" class="sr-only appearance-none bg-transparent">
+                                </label>
+                                <span class="duration-300">Arraste ou solte arquivos aqui</span>
+                            </div>
+
+                            <button class="az-button outlined" :disabled="sending">
+                                FINALIZAR CREDENCIAMENTO
+                            </button>
+                        </form>
+
+                    </template>
+                </div>
+            </div>
+        </section>
+        <section class="az-section">
+            <div class="az-container">
+                <header class="bg-[url(/assets/img/fundo-1.webp)] h-64 bg-contain bg-center bg-no-repeat flex flex-col items-center justify-end">
+                    <h2 class="az-title max-w-xl text-center">
+                        INFORMAÇÕES SOBRE O MEET POINT
+                    </h2>
+                </header>
+                <div class="text-xl text-center mb-16 uppercase max-w-2xl mx-auto mt-5">
+                    Para entrar no camarote você deverá <strong>obrigatóriamente</strong>
+                    retirar o seu kit de acesso no <strong> Meet Point</strong>.
+                </div>
+                <div class="max-w-2xl mx-auto relative">
+                    <svg viewBox="0 0 600 600" height="600" width="600" class="left-0 top-0 absolute w-full h-full">
+                        <rect x="296" y="0" height="100%" width="4"></rect>
+                    </svg>
+                    <div >
+                        <ul class="az-numeric-list relative">
+                            <li>
+                                <span></span>
+                                <span>1</span>
+                                <span>
+                                    <strong>Complete seu cadastro</strong>
+                                    neste hosite
+                                </span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>
+                                    2
+                                </span>
+                                <span>
+                                    Compareça ao <strong>Meet Point </strong> para realizar o <strong>credenciamento</strong>;
+                                </span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>3</span>
+                                <span>
+                                    <strong>Aproveite o maior espetáculo da Terra.</strong>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <header class="text-center">
+                    <h3 class="text-2xl font-bold uppercase mb-8">Credenciamento e customização</h3>
+                    <div class="text-xl max-w-3xl mx-auto">
+                        Você deverá comparecer pessoalmente no Meet Point , com um documento original com foto em 
+    uma das seguintes datas: 7, 8, 9, 10, 11, 12 ou 17 de fevereiro.
+                    </div>
+                </header>
+            </div>
+        </section>
+
+    </main>
 </body>
 
 </html>

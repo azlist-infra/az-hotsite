@@ -3,29 +3,6 @@ document.addEventListener('alpine:init', () => {
     // const BASE_API = 'https://api-rds-aztools.onrender.com/api'
     const BASE_API = 'http://localhost:3005/api'
 
-    let x = 1;
-
-    function gerarAgenda(options = {}) {
-        return {
-            dia: x++,   
-            titulo: 'Desfile Lorem Ipsum',
-            texto: 'Descrição da Agenda desse dia',
-            ...options,
-        }
-    }
-
-    Alpine.data('agenda', () => ({
-        items: [
-            gerarAgenda({ className: 'bg-red-500 text-white'}),
-            gerarAgenda({ className: 'bg-pink-600 text-white' }),
-            gerarAgenda({ className: 'bg-yellow-500 text-white' }),
-            gerarAgenda({ className: 'bg-blue-600 text-white' }),
-            gerarAgenda({ className: 'bg-blue-400 text-white' }),
-            gerarAgenda({ className: 'bg-green-600 text-white' })
-        ]
-    }))
-
-
     Alpine.data('cadastro', () => ({
 
         pax: {
@@ -49,7 +26,9 @@ document.addEventListener('alpine:init', () => {
 
         blob: null,
 
-        uploading: false,
+        sending: false,
+
+        dropingFile:false,
 
         setMessage(message, type = 'success', timeout = 6000) {
             this.message.text = message
@@ -59,6 +38,7 @@ document.addEventListener('alpine:init', () => {
                 this.message.type = null;
             }, timeout);
         },
+
         init() {
 
             let id;
@@ -154,6 +134,8 @@ document.addEventListener('alpine:init', () => {
 
         async submit() {
 
+            this.sending = true;
+
             const response = await fetch(`${BASE_API}/putMagicLink/${this.pax.id}`, {
                 method: 'PUT',
                 headers: {
@@ -168,9 +150,11 @@ document.addEventListener('alpine:init', () => {
                 }),
             })
 
-            if (response.status === 200) {
-                this.setMessage('Seus dados foram atualizados com sucesso!')
-            }
+            await this.uploadPhoto()
+
+            this.sending = false;
+
+            this.setMessage('Suas informações foram atualizadas com sucesso!')
         },
 
         async uploadPhoto() {
@@ -181,8 +165,6 @@ document.addEventListener('alpine:init', () => {
 
             form.append('photo', this.blob, this.blob.name);
 
-            this.uploading = true;
-
             await fetch(`${BASE_API}/postMagicLinkUploadPhoto/${this.pax.id}`, {
                 method: 'POST',
                 body: form,
@@ -190,13 +172,14 @@ document.addEventListener('alpine:init', () => {
                     authorization: `Token ${this.token}`
                 }
             })
-            .finally(() => {
-                this.uploading = false
-            })
-
-            this.setMessage('Imagem enviada com sucesso!', 'success')
 
             this.blob = null;
+        },
+
+        onDrop (e) {
+            const file = e.dataTransfer.files[0];
+
+            this.selectImage(file)
         }
 
     }))

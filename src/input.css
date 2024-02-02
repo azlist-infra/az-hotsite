@@ -16,8 +16,12 @@
         @apply lg:py-12 py-8;
     }
 
+    .az-input-wrapper{
+        @apply [&>label]:ml-4 [&>label]:text-sm [&>label]:font-bold;
+    }
+
     .az-input {
-        @apply border-2 border-neutral-400 rounded-md h-16 p-4 block w-full;
+        @apply border-2 border-neutral-400 rounded-md h-14 p-4 block w-full;
 
         @apply disabled:opacity-70;
     }
@@ -47,6 +51,28 @@
 
     #az-list-items li > h4 {
         @apply text-xl font-bold;
+    }
+
+    ul.az-numeric-list {
+        @apply space-y-16 my-16;
+    }
+
+    ul.az-numeric-list > li {
+        @apply flex items-center gap-4;
+    }
+
+    ul.az-numeric-list > li > span:nth-child(1),
+    ul.az-numeric-list > li > span:nth-child(3) {
+        @apply flex-1;
+    }
+
+    ul.az-numeric-list > li > span:nth-child(3){
+        @apply text-base uppercase;
+    }
+
+    ul.az-numeric-list > li > span:nth-child(2) {
+        @apply h-16 w-16 flex-none bg-black text-white text-2xl flex items-center justify-center rounded-full;
+        @apply font-bold;
     }
 }
 

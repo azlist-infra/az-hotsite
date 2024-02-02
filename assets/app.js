@@ -22,7 +22,7 @@ document.addEventListener('alpine:init', () => {
             type: null
         },
 
-        uploadPreview: 'https://placehold.co/160x80',
+        uploadPreview: null,
 
         blob: null,
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="h-full lg:text-base text-sm">
+<html class="h-full lg:text-base text-sm scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -25,20 +25,10 @@
                 <a class="lg:text-start text-center">
                     <img src="/assets/img/logo.webp" class="w-56 inline-block max-lg:hidden">
                     <img src="/assets/img/logo-vertical.webp" class="w-32 lg:hidden mx-auto my-5">
-                    <a class="lg:hidden block absolute right-5 top-5">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="feather feather-menu">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </a>
                 </a>
                 <nav class="flex gap-5 items-center lg:justify-end justify-center text-lg">
-                    <a class="py-5">Agenda</a>
-                    <a class="py-5">Informações</a>
-                    <a class="py-5">Local</a>
+                    <a class="py-5" href="#cadastro">CADASTRO</a>
+                    <a class="py-5" href="#informacoes">INFORMAÇÕES</a>
                 </nav>
             </div>
         </header>
@@ -69,7 +59,7 @@
                         </div>
                     </div>
 
-                    <h2 class="az-title mb-5 text-center text-black">
+                    <h2 class="az-title mb-5 text-center text-black" id="cadastro">
                         Complete seu Cadastro
                     </h2>
                     <p class="text-justify text-lg mb-5">Confirme seus dados pessoais e envie uma foto para garantir seu
@@ -139,6 +129,7 @@
             <div>
                 <div class="az-container">
                     <header
+                        id="informacoes"
                         class="lg:bg-[url(/assets/img/fundo-1.webp)] bg-[url(/assets/img/fundo-1-mobile.webp)] h-64 bg-contain lg:bg-center bg-no-repeat flex flex-col items-center justify-end">
                         <h2 class="az-title max-w-xl text-center">
                             INFORMAÇÕES SOBRE O MEET POINT

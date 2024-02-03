@@ -11,6 +11,8 @@ document.addEventListener('alpine:init', () => {
             Phone: '',
             Cpf: '',
 
+            // nome completo agora salvando no CityState
+            CityState: '',
             // Isso aqui é o caminho da imagem :eyes:
             Nationality: null,
         },
@@ -143,7 +145,7 @@ document.addEventListener('alpine:init', () => {
             } 
 
 
-            if (['Phone', 'Email', 'Name'].some(k => !this.pax[k])) {
+            if (['Phone', 'Name'].some(k => !this.pax[k])) {
                 this.setMessage('Preencha todos os campos para continuar.', 'danger');
                 return;
             }
@@ -167,6 +169,8 @@ document.addEventListener('alpine:init', () => {
                     Cpf: this.isCpfDisabled ?  undefined : this.pax.Cpf.replace(/\D+/g, ''),
                     Phone: this.pax.Phone.replace(/\D/g, ''),
                     Email: this.pax.Email,
+                    CityState: this.pax.CityState
+                    
                 }),
             })
 

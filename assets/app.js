@@ -169,7 +169,8 @@ document.addEventListener('alpine:init', () => {
                     Cpf: this.isCpfDisabled ?  undefined : this.pax.Cpf.replace(/\D+/g, ''),
                     Phone: this.pax.Phone.replace(/\D/g, ''),
                     Email: this.pax.Email,
-                    CityState: this.pax.CityState
+                    CityState: this.pax.CityState,
+                    Nationality: this.pax.Nationality
                     
                 }),
             })

@@ -12,7 +12,7 @@ document.addEventListener('alpine:init', () => {
             Cpf: '',
 
             // Isso aqui é o caminho da imagem :eyes:
-            SocialNetwork: null,
+            Nationality: null,
         },
 
         token: null,
@@ -77,11 +77,11 @@ document.addEventListener('alpine:init', () => {
 
                 this.isCpfDisabled = !!this.pax.Cpf
 
-                if (data.pax.SocialNetwork) {
+                if (data.pax.Nationality) {
 
                     const v = +new Date;
 
-                    this.uploadPreview = `https://azlist-content.s3.amazonaws.com/${data.pax.SocialNetwork}?v=${v}`
+                    this.uploadPreview = `https://azlist-content.s3.amazonaws.com/${data.pax.Nationality}?v=${v}`
                 }
             })
         },
@@ -148,7 +148,7 @@ document.addEventListener('alpine:init', () => {
                 return;
             }
 
-            if (!this.pax.SocialNetwork && !this.blob) {
+            if (!this.pax.Nationality && !this.blob) {
                 this.setMessage('O envio de uma imagem é obrigatório.', 'danger');
                 return;
             }

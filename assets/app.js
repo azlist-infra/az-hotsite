@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
 
-    const BASE_API = 'https://api-rds-aztools.onrender.com/api'
-    //const BASE_API = 'http://localhost:3005/api'
+    //const BASE_API = 'https://api-rds-aztools.onrender.com/api'
+    const BASE_API = 'http://localhost:3005/api'
 
     Alpine.data('cadastro', () => ({
 
@@ -10,6 +10,9 @@ document.addEventListener('alpine:init', () => {
             Email: '',
             Phone: '',
             Cpf: '',
+
+            // Isso aqui é o caminho da imagem :eyes:
+            SocialNetwork: null,
         },
 
         token: null,
@@ -133,6 +136,23 @@ document.addEventListener('alpine:init', () => {
         },
 
         async submit() {
+
+            if (! this.isCpfDisabled && !this.pax.Cpf) {
+                this.setMessage('É necessário informar o CPF', 'danger');
+                return
+            } 
+
+
+            if (['Phone', 'Email', 'Name'].some(k => !this.pax[k])) {
+                this.setMessage('Preencha todos os campos para continuar.', 'danger');
+                return;
+            }
+
+            if (!this.pax.SocialNetwork && !this.blob) {
+                this.setMessage('O envio de uma imagem é obrigatório.', 'danger');
+                return;
+            }
+
 
             this.sending = true;
 

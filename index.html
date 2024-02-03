@@ -77,7 +77,7 @@
 
                             <div class="az-input-wrapper">
                                 <label>Nome Completo</label>
-                                <input class="az-input" placeholder="Nome Completo" type="text" x-model="pax.Name">
+                                <input class="az-input" required placeholder="Nome Completo" type="text" x-model="pax.Name">
                             </div>
 
                             <div class="az-input-wrapper">
@@ -89,12 +89,12 @@
                             <div class="az-input-wrapper">
                                 <label>Telefone</label>
                                 <input class="az-input" placeholder="Telefone" type="text" x-model="pax.Phone"
-                                    x-mask="(99) 99999-9999" maxlength="15">
+                                    x-mask="(99) 99999-9999" maxlength="15" required>
                             </div>
 
                             <div class="az-input-wrapper">
                                 <label>E-mail</label>
-                                <input class="az-input" placeholder="E-mail" type="email" x-model="pax.Email">
+                                <input class="az-input" placeholder="E-mail" type="email" x-model="pax.Email" required> 
                             </div>
 
                             <div class="relative" x-show="uploadPreview">

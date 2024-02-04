@@ -19,6 +19,7 @@ document.addEventListener('alpine:init', () => {
 
         token: null,
         loading: true,
+        show: true,
 
         isCpfDisabled: false,
 
@@ -60,9 +61,15 @@ document.addEventListener('alpine:init', () => {
             } else {
                 id = localStorage.getItem('id')
                 token = localStorage.getItem('token')
+              
             }
-
+           
             this.token = token;
+
+            if(!token) {
+                this.show = false;
+            }
+           
 
             fetch(`${BASE_API}/magic-link/${id}`, {
                 method: 'GET',

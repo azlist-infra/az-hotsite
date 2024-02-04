@@ -72,7 +72,14 @@
                             </div>
                         </div>
                     </template>
-                    <template x-if="!loading">
+                    <template x-if="!show">
+                        <div class="max-w-md mx-auto">
+                            <div class="text-center">
+                                Caso não carregue, verifique o link recebido via whatsapp!
+                            </div>
+                        </div>
+                    </template>
+                    <template x-if="!loading && show">
                         <form class="grid gap-6 max-w-md mx-auto" autocomplete="off" @submit.prevent="submit">
 
                             <div class="az-input-wrapper">
@@ -229,11 +236,11 @@
                 <h4 class="font-bold mb-5" >CONTATO:</h4>
                 <div>
                     <strong>Tel:</strong>
-                    <span>(31) 99555-1122</span>
+                    <span>Em breve</span>
                 </div>
                 <div>
                     <strong>E-mail:</strong>
-                    <span>contato@riocarnaval.com</span>
+                    <span>Em breve</span>
                 </div>
             </span>
         </div>

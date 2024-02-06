@@ -1,0 +1,99 @@
+<!doctype html>
+<html class="h-full lg:text-base text-sm scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+    <link href="/assets/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/mask@3.x.x/dist/cdn.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
+    <script src="/assets/app.js"></script>
+
+</head>
+
+<body class="text-neutral-800 flex flex-col min-h-screen">
+
+
+
+    <main class="grow" x-data="cadastro">
+
+        <div x-show="message.text"
+            class="fixed top-0 left-0 h-full w-full bg-black/60 flex justify-center items-center z-50">
+            <div x-show="message.type" x-transition:enter.duration.500ms
+                :class="{'bg-teal-500': message.type  === 'success', 'bg-red-500' : message.type === 'danger'}"
+                class=" text-white p-6 rounded-md text-center relative">
+                <span x-text="message.text"></span>
+                <a @click="setMessage(null, null)"
+                    class="text-xl rounded-full text-white flex items-center justify-center bg-black h-8 w-8 absolute -right-4 -top-4 cursor-pointer">
+                    &times;
+                </a>
+            </div>
+        </div>
+
+        <header>
+            <div class="grid lg:grid-cols-2 grid-cols-1 az-container">
+                <a class="lg:text-start text-center">
+                    <img src="/assets/img/logo.webp" class="w-56 inline-block max-lg:hidden">
+                    <img src="/assets/img/logo-vertical.webp" class="w-32 lg:hidden mx-auto my-5">
+                </a>
+                <nav class="flex gap-5 items-center lg:justify-end justify-center text-lg">
+                    <a class="py-5" href="#cadastro">CADASTRO</a>
+                    <a class="py-5" href="#informacoes">INFORMAÇÕES</a>
+                </nav>
+            </div>
+        </header>
+        <section
+            class="bg-black text-white bg-[url(/assets/img/fundo-banner-mobile.webp)] lg:bg-[url(/assets/img/fundo-banner.webp)] bg-contain bg-bottom lg:bg-center bg-no-repeat">
+            <div class="text-5xl font-bold text-center lg:h-56 h-96 max-w-4xl uppercase mx-auto flex items-center">
+                Esperamos você no maior espetáculo da Terra!
+            </div>
+        </section>
+
+        <div class="max-w-lg mx-auto my-32 px-8 lg:px-0" x-data="buscarCpf">
+            <p class="mb-5 text-lg">Para acessar as suas informações, informe seu CPF abaixo.</p>
+            <form @submit.prevent="search" class="grid lg:grid-cols-3 grid-cols-1 items-center gap-2">
+                <input class="az-input lg:col-span-2" placeholder="Digite aqui seu CPF" x-mask="999.999.999-99" x-model="cpf">
+                <button type="submit" class="az-button" :disabled="loading">
+                    Pesquisar
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="bg-black text-white pt-12 pb-6 px-8">
+        <div class="az-container grid grid-cols-1 lg:grid-cols-3 items-center gap-8">
+            <span class="flex justify-center">
+                <img src="/assets/img/logo-vertical-invertida.webp">
+            </span>
+            <span class="max-lg:order-last flex flex-col gap-8 h-full justify-center">
+                <div class="grid grid-cols-2 items-center grow">
+                    <img src="/assets/img/liesa.svg">
+                    <img src="/assets/img/az-list.png">
+                </div>
+                <div class="text-center">
+                    © 2024 AZ List.  All rights reserved.
+                </div>
+            </span>
+            <span class="flex flex-col justify-center lg:items-end h-full">
+                <h4 class="font-bold mb-5" >CONTATO:</h4>
+                <div>   
+                    <strong>Tel:</strong>
+                    <span>(21) 99376-6909</span>
+                </div>
+                <div>
+                    <strong>E-mail:</strong>
+                    <span>cam4orcamento@liesa.org.br</span>
+                </div>
+            </span>
+        </div>
+    </footer>
+</body>
+
+</html>

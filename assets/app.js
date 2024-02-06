@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
 
-    const BASE_API = 'https://api-rds-aztools.onrender.com/api'
-    // const BASE_API = 'http://localhost:3005/api'
+    // const BASE_API = 'https://api-rds-aztools.onrender.com/api'
+    const BASE_API = 'http://localhost:3005/api'
 
     Alpine.data('cadastro', () => ({
 
@@ -34,15 +34,19 @@ document.addEventListener('alpine:init', () => {
 
         sending: false,
 
-        dropingFile:false,
+        dropingFile: false,
 
         setMessage(message, type = 'success', timeout = 6000) {
             this.message.text = message
             this.message.type = type
-            setTimeout(() => {
-                this.message.text = null;
-                this.message.type = null;
-            }, timeout);
+
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    this.message.text = null;
+                    this.message.type = null;
+                    resolve()
+                }, timeout);
+            })
         },
 
         init() {
@@ -61,15 +65,15 @@ document.addEventListener('alpine:init', () => {
             } else {
                 id = localStorage.getItem('id')
                 token = localStorage.getItem('token')
-              
+
             }
-           
+
             this.token = token;
 
-            if(!token) {
+            if (!token) {
                 this.show = false;
             }
-           
+
 
             fetch(`${BASE_API}/magic-link/${id}`, {
                 method: 'GET',
@@ -126,7 +130,7 @@ document.addEventListener('alpine:init', () => {
 
             const drawAfterLoad = () => {
                 const w = canvas.width;
-                const h = canvas.width *  img.height / img.width;
+                const h = canvas.width * img.height / img.width;
 
                 canvas.height = h;
 
@@ -146,10 +150,10 @@ document.addEventListener('alpine:init', () => {
 
         async submit() {
 
-            if (! this.isCpfDisabled && !this.pax.Cpf) {
+            if (!this.isCpfDisabled && !this.pax.Cpf) {
                 this.setMessage('É necessário informar o CPF', 'danger');
                 return
-            } 
+            }
 
 
             if (['Phone', 'Name'].some(k => !this.pax[k])) {
@@ -173,12 +177,12 @@ document.addEventListener('alpine:init', () => {
                 },
                 body: JSON.stringify({
                     Name: this.pax.Name,
-                    Cpf: this.isCpfDisabled ?  undefined : this.pax.Cpf.replace(/\D+/g, ''),
+                    Cpf: this.isCpfDisabled ? undefined : this.pax.Cpf.replace(/\D+/g, ''),
                     Phone: this.pax.Phone.replace(/\D/g, ''),
                     Email: this.pax.Email,
                     CityState: this.pax.CityState,
                     Nationality: this.pax.Nationality
-                    
+
                 }),
             })
 
@@ -208,11 +212,53 @@ document.addEventListener('alpine:init', () => {
             this.blob = null;
         },
 
-        onDrop (e) {
+        onDrop(e) {
             const file = e.dataTransfer.files[0];
 
             this.selectImage(file)
         }
 
+    }));
+
+
+    Alpine.data('buscarCpf', () => ({
+
+        cpf: '',
+        loading: false,
+
+        async search() {
+            this.loading = true;
+
+            fetch(`${BASE_API}/magicLinkByCpf`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    Cpf: this.cpf.replace(/\D/g, '')
+                })
+            })
+            .then(async res => {
+
+                const data = await res.json();
+
+                if (res.status === 400) {
+                    this.setMessage(data.error, 'danger');
+                    return;
+                }
+                else if (res.status === 200) {
+
+                    this.setMessage('CPF encontrado com sucesso! Você será direcionado para seus dados!', 'success')
+
+                    setTimeout(() => {
+                        window.location.href = `/?id=${data.pax.id}&token=${data.hash}`
+                    }, 5000);
+                }
+
+            })
+            .finally(() => {
+                this.loading = false;
+            })
+        }
     }))
 })

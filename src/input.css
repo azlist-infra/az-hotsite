@@ -21,14 +21,14 @@
     }
 
     .az-input {
-        @apply border-2 border-neutral-400 rounded-md h-14 p-4 block w-full;
+        @apply border-2 border-neutral-400 rounded-md h-16 p-4 block w-full;
 
         @apply disabled:opacity-70;
     }
 
     .az-button {
         @apply cursor-pointer;
-        @apply h-16 px-8 inline-flex justify-center items-center duration-500 text-lg;
+        @apply h-16 px-8 inline-flex justify-center items-center duration-500 text-lg rounded-md;
         @apply disabled:opacity-40;
     }
 

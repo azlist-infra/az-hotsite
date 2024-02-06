@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     './index.html',
-    './cadastro.html',
+    './register.html',
     './assets/app.js',
   ],
   corePlugins: {

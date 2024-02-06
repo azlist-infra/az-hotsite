@@ -1,7 +1,7 @@
 document.addEventListener('alpine:init', () => {
 
-    // const BASE_API = 'https://api-rds-aztools.onrender.com/api'
-    const BASE_API = 'http://localhost:3005/api'
+    const BASE_API = 'https://api-rds-aztools.onrender.com/api'
+    // const BASE_API = 'http://localhost:3005/api'
 
     Alpine.data('cadastro', () => ({
 

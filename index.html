@@ -64,7 +64,7 @@
                     </h2>
                     <p class="text-justify text-lg mb-5">Confirme seus dados pessoais e envie uma foto para garantir seu
                         lugar no camarote.
-                        E não se esqueça que precisará retirar seu kit de acesso. Veja aqui mais informações</p>
+                        E não se esqueça, você deverá comparecer ao Meet Point para retirar o seu kit de acesso.</p>
                     <template x-if="loading">
                         <div class="max-w-md mx-auto">
                             <div class="text-center">
@@ -75,7 +75,7 @@
                     <template x-if="!show">
                         <div class="max-w-md mx-auto">
                             <div class="text-center">
-                                Caso não carregue, verifique o link recebido via whatsapp!
+                                Para completar o seu cadastro, você deverá acessar este hotsite pelo link recebido via whatsapp.
                             </div>
                         </div>
                     </template>
@@ -121,12 +121,13 @@
                                 x-on:dragover.prevent="dropingFile = true" x-on:dragleave.prevent="dropingFile = false">
                                 <label
                                     class="bg-black hover:bg-zinc-800 text-white px-8 py-1 rounded-2xl cursor-pointer">
-                                    Enviar Arquivos
+                                    Envie sua foto
                                     <input @change="(e) => e.target.files.length && selectImage(e.target.files[0])"
                                         accept="image/*" type="file" class="sr-only appearance-none bg-transparent">
                                 </label>
-                                <span class="duration-300">Arraste ou solte arquivos aqui</span>
+                                <span class="duration-300 -top-25">Foto para credencial</span>
                             </div>
+                               <span class="duration-300 text-center">Envie uma foto apenas do seu rosto centralizado na imagem</span>
 
                             <button class="az-button outlined" :disabled="sending">
                                 FINALIZAR CREDENCIAMENTO
@@ -160,7 +161,7 @@
                                     <span>1</span>
                                     <span>
                                         <strong>Complete seu cadastro</strong>
-                                        neste hosite
+                                        neste hotsite
                                     </span>
                                 </li>
                                 <li>
@@ -187,8 +188,8 @@
                     <header class="text-center">
                         <h3 class="text-2xl font-bold uppercase mb-8">Credenciamento e customização</h3>
                         <div class="text-xl max-w-3xl mx-auto">
-                            Você deverá comparecer pessoalmente no Meet Point , com um <strong>documento original com
-                                foto</strong> em
+                            Você deverá comparecer pessoalmente no Meet Point, com um <strong>documento original com
+                                foto,</strong> em
                             uma das <strong>seguintes datas: 7, 8, 9, 10, 11, 12 ou 17 de fevereiro</strong>.
                         </div>
                     </header>
